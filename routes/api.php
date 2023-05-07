@@ -70,6 +70,7 @@ Route::apiResource('/pegawai', App\Http\Controllers\PegawaiController::class);
 Route::apiResource('/member', App\Http\Controllers\MemberController::class);
 Route::apiResource('/kelas', App\Http\Controllers\KelasController::class);
 Route::apiResource('/jadwal_umum', App\Http\Controllers\JadwalUmumController::class);
+Route::apiResource('/jadwal_harian', App\Http\Controllers\JadwalHarianController::class);
 Route::apiResource('/promo', App\Http\Controllers\PromoController::class);
 Route::apiResource('/transaksi_deposit_uang', App\Http\Controllers\TransaksiDepositUangController::class);
 

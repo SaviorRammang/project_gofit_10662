@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal__harians', function (Blueprint $table) {
+        Schema::create('jadwal_harians', function (Blueprint $table) {
             $table->id('id_jadwal_harian');
             $table->date('tanggal_jadwal_harian');
             //foreign key
@@ -21,9 +21,9 @@ return new class extends Migration
             $table->foreign('id_instruktur')->references('id')->on('instrukturs')->onDelete('cascade');
 
             //foreign key
-            $table->unsignedBigInteger('id_instruktur');
-            $table->foreign('id_instruktur')->references('id')->on('instrukturs')->onDelete('cascade');
-            
+            $table->unsignedBigInteger('id_jadwal_umum');
+            $table->foreign('id_jadwal_umum')->references('id')->on('jadwal__umums')->onDelete('cascade');
+
             $table->string('status_jadwal_harian');
             $table->timestamps();
         });
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwal__harians');
+        Schema::dropIfExists('jadwal_harians');
     }
 };
