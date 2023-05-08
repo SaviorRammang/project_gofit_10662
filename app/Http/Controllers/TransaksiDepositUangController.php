@@ -42,7 +42,7 @@ class TransaksiDepositUangController extends Controller
             }
 
             $depositUang = transak_deposit_uang::firstOrCreate  ([
-                'tanggal_deposit_uang' => date('Y-m-d', strtotime('now')),
+                'tanggal_deposit_uang' => date('Y-m-d H:i:s', strtotime('now')),
                 'nominal_deposit_uang' => $nominal_deposit_uang,
                 'bonus_deposit_uang' => $bonus_deposit_uang,
                 'total_deposit_uang' =>   $total_deposit_uang,
@@ -60,7 +60,7 @@ class TransaksiDepositUangController extends Controller
             $member->save();
             return response([
                 'message'=> 'Berhasil Melakukan Transaksi',
-                'data' => ['transaksi_deposit_uang' => $depositUang, 'sisa_deposit' => $nominal_deposit_uang, 'no_struk' => transak_deposit_uang::latest()->first()->no_struk_deposit_uang, 'siganteng' => $member->nama_member],
+                'data' => ['transaksi_deposit_uang' => $depositUang, 'sisa_deposit' => $sebelum_transaksi, 'no_struk' => transak_deposit_uang::latest()->first()->no_struk_deposit_uang, 'siganteng' => $member->nama_member],
                 'total' => $total_deposit_uang,
             ]);
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\JadwalUmumResource;
-use App\Models\Jadwal_Harian;
 use App\Models\JadwalHarian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +22,7 @@ class JadwalHarianController extends Controller
         if(!is_null($cekJadwalHarian)){
             return response()->json([
                 'success' => false,
-                'message' => 'Jadwal Harian telah digenerate untuk minggu ini',
+                'message' => 'Jadwal Harian Telah di Generate  ',
                 'data' => null
             ]);
         }
@@ -66,12 +65,12 @@ class JadwalHarianController extends Controller
             }
         }
         return response([
-            'message'=> 'Berhasil Melakukan Transaksi',
+            'message'=> 'Berhasil Melakukan Generate',
         ]);
     }
     public function update($id_jadwal_harian){
         $jadwal_harian = JadwalHarian::find($id_jadwal_harian);
-        $jadwal_harian->status_jadwal_harian = 'diliburkan';
+        $jadwal_harian->status_jadwal_harian = 'DILIBURKAN';
         $jadwal_harian->update();
         return response()->json(['message' => 'Jadwal Harian berhasil diliburkan'], 200);
     }

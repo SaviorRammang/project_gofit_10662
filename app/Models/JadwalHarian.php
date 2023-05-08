@@ -23,7 +23,7 @@ class JadwalHarian extends Model
     }
     public function jadwal_umum()
     {
-        return $this->belongsTo(Kelas::class, 'id_jadwal_umum', 'id');
+        return $this->belongsTo(Jadwal_Umum::class, 'id_jadwal_umum', 'id');
 
     }
 }

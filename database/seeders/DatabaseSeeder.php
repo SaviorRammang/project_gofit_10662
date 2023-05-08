@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Instruktur;
 use App\Models\Kelas;
 use App\Models\Member;
 use App\Models\User;
@@ -160,7 +161,52 @@ class DatabaseSeeder extends Seeder
             'id' => '3',
             'nama_kelas' => 'Bally Dance',
             'harga_kelas' => '250000',
+        ]);Kelas::create([
+            'id' => '4',
+            'nama_kelas' => 'Zumba',
+            'harga_kelas' => '200000',
         ]);
+        Kelas::create([
+            'id' => '5',
+            'nama_kelas' => 'Yoga',
+            'harga_kelas' => '250000',
+        ]);
+        Kelas::create([
+            'id' => '6',
+            'nama_kelas' => 'Spine',
+            'harga_kelas' => '300000',
+        ]);
+        Instruktur::create([
+            'id'=>'1',
+            'id_user'=>'1',
+            'nama_instruktur'=>'Alfonsus Setiawan',
+            'username_instruktur'=> 'Alfons',
+            'email_instruktur' => 'alfons@gmail.com',
+            'password_instruktur'=>'12345',
+            'no_telp_instruktur' =>'20132910182',
+            'alamat_instruktur'=> 'Jl.Yadara'
+        ]);
+        Instruktur::create([
+            'id'=>'2',
+            'id_user'=>'2',
+            'nama_instruktur'=>'Almindo Rammang',
+            'username_instruktur'=> 'Almindo',
+            'email_instruktur' => 'almindo@gmail.com',
+            'password_instruktur'=>'12345',
+            'no_telp_instruktur' =>'1929282192',
+            'alamat_instruktur'=> 'Jl.Babarsari',
+        ]);
+        Instruktur::create([
+            'id'=>'3',
+            'id_user'=>'3',
+            'nama_instruktur'=>'Almindo Savior',
+            'username_instruktur'=> 'Savior',
+            'email_instruktur' => 'al@gmail.com',
+            'password_instruktur'=>'12345',
+            'no_telp_instruktur' =>'082101929310',
+            'alamat_instruktur'=> 'Jl.Sorong',
+        ]);
+        
         // Promo::create([
         //     'id' => '1',
         //     'jenis_promo' => 'Promo Reguler',

@@ -73,6 +73,8 @@ Route::apiResource('/jadwal_umum', App\Http\Controllers\JadwalUmumController::cl
 Route::apiResource('/jadwal_harian', App\Http\Controllers\JadwalHarianController::class);
 Route::apiResource('/promo', App\Http\Controllers\PromoController::class);
 Route::apiResource('/transaksi_deposit_uang', App\Http\Controllers\TransaksiDepositUangController::class);
+Route::apiResource('/transaksi_aktivasi', App\Http\Controllers\TransaksiAktivasiController::class);
+
 
 
 Route::get('/loginpegawai', '\App\Http\Controllers\pegawaiController@loginPegawai');
