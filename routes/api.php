@@ -74,6 +74,7 @@ Route::apiResource('/jadwal_harian', App\Http\Controllers\JadwalHarianController
 Route::apiResource('/promo', App\Http\Controllers\PromoController::class);
 Route::apiResource('/transaksi_deposit_uang', App\Http\Controllers\TransaksiDepositUangController::class);
 Route::apiResource('/transaksi_aktivasi', App\Http\Controllers\TransaksiAktivasiController::class);
+Route::apiResource('/ijin_instruktur', App\Http\Controllers\IjinInstrukturController::class);
 
 
 

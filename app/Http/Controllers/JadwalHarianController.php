@@ -70,7 +70,7 @@ class JadwalHarianController extends Controller
     }
     public function update($id_jadwal_harian){
         $jadwal_harian = JadwalHarian::find($id_jadwal_harian);
-        $jadwal_harian->status_jadwal_harian = 'DILIBURKAN';
+        $jadwal_harian->status_jadwal_harian = 'Diliburkan !';
         $jadwal_harian->update();
         return response()->json(['message' => 'Jadwal Harian berhasil diliburkan'], 200);
     }

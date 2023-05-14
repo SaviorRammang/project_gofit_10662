@@ -20,11 +20,11 @@ class TransaksiAktivasiController extends Controller
         ]);
         $member = Member::where('id_member', $request->id_member)->first();
         if ($member->tanggal_aktivasi_member == null) {
-            $tgl_aktivasi = date('Y-m-d H:i:s'); // jika kosong, gunakan tanggal hari ini
+            $tgl_aktivasi = date('Y-m-d '); // jika kosong, gunakan tanggal hari ini
         } else {
             $tgl_aktivasi = $member->tanggal_aktivasi_member; // gunakan tanggal aktivasi yang ada di database
         }
-        $tgl_kadaluarsa = date('Y-m-d H:i:s', strtotime('+1 year', strtotime($tgl_aktivasi)));
+        $tgl_kadaluarsa = date('Y-m-d ', strtotime('+1 year', strtotime($tgl_aktivasi)));
         $member->tanggal_aktivasi_member = $tgl_kadaluarsa;
         $member->save();
         
