@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('email_member')->unique();
             $table->string('password_member');
             $table->string('alamat_member');
-            $table->string('tanggal_aktivasi_member');
+            $table->date('tanggal_aktivasi_member')->nullable();
             $table->integer('saldo_deposit_member');
             $table->timestamps();
         });

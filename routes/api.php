@@ -76,6 +76,12 @@ Route::apiResource('/transaksi_deposit_uang', App\Http\Controllers\TransaksiDepo
 Route::apiResource('/transaksi_aktivasi', App\Http\Controllers\TransaksiAktivasiController::class);
 Route::apiResource('/ijin_instruktur', App\Http\Controllers\IjinInstrukturController::class);
 
+Route::get('/member_kedaluwarsa', [App\Http\Controllers\SistemKasirController::class, 'memberKadeluarsa']);
+Route::get('/deaktivasi_member', [App\Http\Controllers\SistemKasirController::class, 'memberDeaktivasi']);
+Route::get('/reset_deposit', [App\Http\Controllers\SistemKasirController::class, 'resetDeposit']);
+Route::get('/deposit_kedaluwarsa', [App\Http\Controllers\SistemKasirController::class, 'depositkadeluarsa']);
+
+
 
 
 Route::get('/loginpegawai', '\App\Http\Controllers\pegawaiController@loginPegawai');

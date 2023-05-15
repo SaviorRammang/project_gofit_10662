@@ -23,6 +23,10 @@ return new class extends Migration
             $table->unsignedBigInteger('id_instruktur_pengganti');
             $table->foreign('id_instruktur_pengganti')->references('id')->on('instrukturs')->onDelete('cascade');
 
+            //foreign key
+            // $table->unsignedBigInteger('id_jadwal_harian');
+            // $table->foreign('id_jadwal_harian')->references('id_jadwal_harian')->on('jadwal_harians')->onDelete('cascade');
+
             $table->string('hari_izin');
             $table->date('tanggal_pengajuan_izin');
             $table->date('tanggal_izin');

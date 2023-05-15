@@ -14,6 +14,7 @@ class TransaksiDepositPaket extends Model
         'id_pegawai',
         'id_promo',
         'id_kelas',
+        'tanggal_kedaluwarsa',
         'bonus_deposit_paket',
         'tanggal_deposit_paket',
         'nominal_deposit_paket',

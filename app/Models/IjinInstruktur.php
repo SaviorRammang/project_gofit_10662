@@ -13,6 +13,7 @@ class IjinInstruktur extends Model
     protected $fillable = [
         'id_instruktur',
         'id_instruktur_pengganti',
+        'id_jadwal_harian',
         'hari_izin',
         'tanggal_pengajuan_izin',
         'tanggal_izin',
@@ -31,4 +32,10 @@ class IjinInstruktur extends Model
         return $this->belongsTo(Instruktur::class, 'id_instruktur_pengganti', 'id');
 
     }
+    public function jadwalHarian()
+    {
+        return $this->belongsTo(JadwalHarian::class, 'id_jadwal_harian', 'id_jadwal_harian');
+
+    }
+
 }

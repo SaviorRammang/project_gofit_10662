@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class IjinInstrukturController extends Controller
 {
 
-    public function index(Request $request){
+    public function index(){
         $ijin_instruktur = IjinInstruktur::with(['Instruktur','InstrukturPengganti'])->get();
 
         return response([

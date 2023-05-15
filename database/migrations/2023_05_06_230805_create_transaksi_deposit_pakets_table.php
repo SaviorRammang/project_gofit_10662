@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('id_pegawai');
             $table->foreign('id_pegawai')->references('id_pegawai')->on('pegawais')->onDelete('cascade');
             //
+            $table->date('tanggal_kedaluwarsa');
             $table->integer('bonus_deposit_paket');
             $table->date('tanggal_deposit_paket');
             $table->integer('nominal_deposit_paket');
