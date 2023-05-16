@@ -28,7 +28,7 @@ class SistemKasirController extends Controller
     {
         $today = Carbon::today();
 
-        $members = TransaksiDepositPaket::where('tanggal_kedaluwarsa ', '<', $today)
+        $members = TransaksiDepositPaket::where('tanggal_kedaluwarsa', '<', $today)
                           ->get();
         return response([
             'message'=>'Success Tampil Data',
