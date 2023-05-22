@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InstrukturController;
+use App\Http\Controllers\LoginMobileController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PegawaiController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\VerificationController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login'])->middleware('cors');
+Route::post('/loginMobile', [LoginMobileController::class, 'loginMobile']);
 Route::put('reset/{id_member}', 'App\Http\Controllers\MemberController@resetPassword');
 
 
@@ -74,7 +76,9 @@ Route::apiResource('/jadwal_harian', App\Http\Controllers\JadwalHarianController
 Route::apiResource('/promo', App\Http\Controllers\PromoController::class);
 Route::apiResource('/transaksi_deposit_uang', App\Http\Controllers\TransaksiDepositUangController::class);
 Route::apiResource('/transaksi_aktivasi', App\Http\Controllers\TransaksiAktivasiController::class);
-Route::apiResource('/ijin_instruktur', App\Http\Controllers\IjinInstrukturController::class);
+Route::apiResource('/ijin_instruktur', App\Http\Controllers\IjinInstrukturController::class);    
+Route::apiResource('/bookinggym',  App\Http\Controllers\BookingGymConctroller::class);  
+
 
 Route::get('/member_kedaluwarsa', [App\Http\Controllers\SistemKasirController::class, 'memberKadeluarsa']);
 Route::get('/deaktivasi_member', [App\Http\Controllers\SistemKasirController::class, 'memberDeaktivasi']);
@@ -83,5 +87,7 @@ Route::get('/deposit_kedaluwarsa', [App\Http\Controllers\SistemKasirController::
 
 
 
+Route::post('/tampilbookinggym',  [App\Http\Controllers\BookingGymConctroller::class, 'showData']);
+Route::put('/cancelbookinggym/{no_struk_booking_presensi_gym }', [App\Http\Controllers\BookingGymConctroller::class, 'cancelBookingGym']);
 
 Route::get('/loginpegawai', '\App\Http\Controllers\pegawaiController@loginPegawai');

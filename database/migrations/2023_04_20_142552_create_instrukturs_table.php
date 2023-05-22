@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('password_instruktur');
             $table->string('no_telp_instruktur');
             $table->string('alamat_instruktur');
+            $table->string('jumlah_keterlambatan_instruktur')->nullable();
             $table->timestamps();
         });
     }

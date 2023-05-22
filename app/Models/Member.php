@@ -45,6 +45,13 @@ class Member extends Model
             return Carbon::parse($this->attributes['updated_at'])->format('Y-m-d H:i:s');
         }
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_userr', 'id');
+
+    }
+
     protected $casts = [
         'id_member' => 'string'
     ];

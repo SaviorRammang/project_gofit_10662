@@ -42,44 +42,6 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // $loginData = $request->all();
-
-        // $validate = Validator::make($loginData,[
-        //     'email' => 'required|email',
-        //     'password' => 'required'
-        // ]);
-   
-        // if($validate->fails()){
-        //     return response()->json([
-        //         'status' => false,
-        //         'message' => 'validation error',
-        //         'errors' => $validate->errors()
-        //     ], 401);
-        // }
-
-        // if(!Auth::attempt($request->only(['email', 'password']))){
-        //     return response()->json([
-        //         'status' => false,
-        //         'message' => 'Email & Password invalid.',
-        //     ], 401);
-        // }
-
-        // $user = User::where('email', $request->email)->first();
-        // $user = Auth::user();
-
-        // if (!$user->hasVerifiedEmail()) {
-        //     return response()->json([
-        //         'status' => false,
-        //         "message" => "Email isn't' verified"
-        //     ], 400);
-        // }
-
-        // return response()->json([
-        //     'status' => true,
-        //     'message' => 'User Logged In Successfully',
-        //     'data' => $user,
-        //     'token' => $user->createToken("API TOKEN")->plainTextToken
-        // ], 200);
         try {
             $validateUser = Validator::make($request->all(),
             [

@@ -33,6 +33,7 @@ return new class extends Migration
             $table->date('tanggal_deposit_paket');
             $table->integer('nominal_deposit_paket');
             $table->integer('nominal_uang_deposit_paket');
+            $table->integer('total_deposit_paket_kelas');
             $table->timestamps();
         });
     }
