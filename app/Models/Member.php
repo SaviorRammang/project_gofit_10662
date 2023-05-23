@@ -48,7 +48,7 @@ class Member extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_userr', 'id');
+        return $this->belongsTo(User::class, 'id_user', 'id');
 
     }
 

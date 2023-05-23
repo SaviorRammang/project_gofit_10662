@@ -9,7 +9,7 @@ class presensiGymController extends Controller
 {
     public function index()
     {   
-        $presensi_gym = booking_gym::where('is_canceled',0)->latest()->get();
+        $presensi_gym = booking_gym::where('is_canceled',0)->with(['member'])->latest()->get();
         return response([
             'message' => 'success tampil data',
             'data' => $presensi_gym
@@ -30,6 +30,5 @@ class presensiGymController extends Controller
     public function generateStruk($no_struk_booking_presensi_gym, Request $request){
         $dataBooking = booking_gym::with(['member'])->find($no_struk_booking_presensi_gym);
 
-        
     }
 }

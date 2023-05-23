@@ -31,6 +31,6 @@ class booking_gym extends Model
         }
     }
     public function member(){
-        return $this->belongsTo(Member::class, 'id_member', 'id_member');
+        return $this->hasOne(Member::class, 'id_member', 'id_member');
     }
 }

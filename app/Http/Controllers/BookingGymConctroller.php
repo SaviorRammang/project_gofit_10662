@@ -58,7 +58,7 @@ class BookingGymConctroller extends Controller
     }
 
     public function cekBookingSame($tanggalYangDiBooking , $idMember){
-        $daftarBooking = booking_gym::where('tanggal_yang_di_booking_gym', $tanggalYangDiBooking )->where('id_member',$idMember)->count();
+        $daftarBooking = booking_gym::where('tanggal_yang_di_booking_gym', $tanggalYangDiBooking,)->where('id_member',$idMember)->count();
         if($daftarBooking == 0 ){
             //* tidak ada yang sama
             return false;

@@ -170,30 +170,37 @@ class DatabaseSeeder extends Seeder
             'id' => '1',
             'nama_kelas' => 'Muaythai',
             'harga_kelas' => '150000',
+            'kapasitas_kelas' => 0,
         ]);
         Kelas::create([
             'id' => '2',
             'nama_kelas' => 'Dance Wings',
             'harga_kelas' => '200000',
+            'kapasitas_kelas' => 0,
         ]);
         Kelas::create([
             'id' => '3',
             'nama_kelas' => 'Bally Dance',
             'harga_kelas' => '250000',
-        ]);Kelas::create([
+            'kapasitas_kelas' => 0,
+        ]);
+        Kelas::create([
             'id' => '4',
             'nama_kelas' => 'Zumba',
             'harga_kelas' => '200000',
+            'kapasitas_kelas' => 0,
         ]);
         Kelas::create([
             'id' => '5',
             'nama_kelas' => 'Yoga',
             'harga_kelas' => '250000',
+            'kapasitas_kelas' => 0,
         ]);
         Kelas::create([
             'id' => '6',
             'nama_kelas' => 'Spine',
             'harga_kelas' => '300000',
+            'kapasitas_kelas' => 0,
         ]);
         Instruktur::create([
             'id'=>'1',

@@ -27,6 +27,7 @@ use App\Http\Controllers\VerificationController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login'])->middleware('cors');
 Route::post('/loginMobile', [LoginMobileController::class, 'loginMobile']);
+Route::get('/loginpegawai', '\App\Http\Controllers\pegawaiController@loginPegawai');
 Route::put('reset/{id_member}', 'App\Http\Controllers\MemberController@resetPassword');
 
 
@@ -71,7 +72,6 @@ Route::apiResource('/instruktur', App\Http\Controllers\InstrukturController::cla
 Route::apiResource('/pegawai', App\Http\Controllers\PegawaiController::class);
 Route::apiResource('/member', App\Http\Controllers\MemberController::class);
 Route::apiResource('/kelas', App\Http\Controllers\KelasController::class);
-Route::apiResource('/jadwal_umum', App\Http\Controllers\JadwalUmumController::class);
 Route::apiResource('/jadwal_harian', App\Http\Controllers\JadwalHarianController::class);
 Route::apiResource('/promo', App\Http\Controllers\PromoController::class);
 Route::apiResource('/transaksi_deposit_uang', App\Http\Controllers\TransaksiDepositUangController::class);
@@ -85,9 +85,20 @@ Route::get('/deaktivasi_member', [App\Http\Controllers\SistemKasirController::cl
 Route::get('/reset_deposit', [App\Http\Controllers\SistemKasirController::class, 'resetDeposit']);
 Route::get('/deposit_kedaluwarsa', [App\Http\Controllers\SistemKasirController::class, 'depositkadeluarsa']);
 
+Route::apiResource('/presensigym', App\Http\Controllers\presensiGymController::class);  
+Route::post('/cetakstrukgym/{noBooking}', [App\Http\Controllers\presensiGymController::class,'generateStrukTransaksi']);  
+Route::post('/cetakstrukkelas/{noBooking}', 'presensiKelasController@generateStrukTansaksi');  
 
 
 Route::post('/tampilbookinggym',  [App\Http\Controllers\BookingGymConctroller::class, 'showData']);
 Route::put('/cancelbookinggym/{no_struk_booking_presensi_gym }', [App\Http\Controllers\BookingGymConctroller::class, 'cancelBookingGym']);
 
-Route::get('/loginpegawai', '\App\Http\Controllers\pegawaiController@loginPegawai');
+
+
+Route::apiResource('/jadwal_umum', App\Http\Controllers\JadwalUmumController::class);
+Route::get('/jadwalumummobile', [App\Http\Controllers\JadwalUmumController::class, 'getJadwalMobile']);
+
+//Presensi Member Gym
+Route::apiResource('/presensiGym', App\Http\Controllers\presensiGymController::class);
+Route::get('/presensiMemberGym', [App\Http\Controllers\Api\BookingGymController::class, 'index']);
+Route::put('/presensiMemberGym/{no_struk_booking_presensi_gym}', [App\Http\Controllers\Api\BookingGymController::class, 'PresensiGym']);

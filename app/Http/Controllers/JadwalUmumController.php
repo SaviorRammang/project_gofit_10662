@@ -142,5 +142,15 @@ class JadwalUmumController extends Controller
             'id_instruktur.unique' => 'Jadwal Instruktur Bertabrakan!'
         ];
     }
+
+    public function getJadwalMobile(){
+        $jadwal = Jadwal_Umum::orderByRaw("FIELD(hari_jadwal_umum, 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu')")->with(['instruktur','kelas'])->get();
+        // $sortedData = DB::table('jadwal_umum')
+            // ->orderByRaw("FIELD(hari, 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu')")
+            // ->get();
+
+        return response(['data'=>$jadwal]);
+
+    }
 }
 

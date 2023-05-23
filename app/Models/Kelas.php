@@ -11,12 +11,14 @@ class Kelas extends Model
 
     protected $fillable = [
         'nama_kelas',
-        'harga_kelas'
+        'harga_kelas',
+        'kapasitas_kelas',
     ]; 
 
     public static $rules =[
         'nama_kelas'=>"required",
-        'harga_kelas'=>"required"
+        'harga_kelas'=>"required",
+        'kapasitas_kelas'=>"required",
     ];
 
 }
