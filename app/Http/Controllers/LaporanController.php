@@ -71,5 +71,35 @@ class LaporanController extends Controller
     ]);
 }
 
+public function aktivitasKelasBulanan(Request $request)
+    {
+        $bulan = Carbon::now()->month;
+        if ($request->has('month') && !empty($request->month)) {
+            $bulan = $request->month;
+        }
+        // dd($bulan);
+        //* Tanggal Cetak
+        $tanggalCetak = Carbon::now();
+        $aktivitasKelas = DB::select('
+            SELECT k.nama_kelas AS kelas, i.nama_instruktur AS instruktur, COUNT(bk.no_struk_booking_presensi_kelas) AS jumlah_peserta_kelas, 
+                COUNT(CASE WHEN jh.status_jadwal_harian = "diliburkan" THEN 1 ELSE NULL END) AS jumlah_libur
+            FROM booking_kelas AS bk
+            JOIN jadwal_harians AS jh ON bk.id_jadwal_harian = jh.id_jadwal_harian
+            JOIN jadwal__umums AS ju ON jh.id_jadwal_umum = ju.id
+            JOIN instrukturs AS i ON ju.id_instruktur = i.id
+            JOIN kelas AS k ON ju.id_kelas = k.id
+            WHERE MONTH(jh.tanggal_jadwal_harian) = ?
+            GROUP BY k.nama_kelas, i.nama_instruktur
+        ', [$bulan]);
+    
+        //akumulasi terlambat direset tiap bulan jam mulai tiap bulan - jam selesai bulan 
+        
+        return response([
+            'data' => $aktivitasKelas,
+            'tanggal_cetak' => $tanggalCetak,
+        ]);
+        
+    }
+
     
 }

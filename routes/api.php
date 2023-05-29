@@ -106,3 +106,5 @@ Route::put('/presensiMemberGym/{no_struk_booking_presensi_gym}', [App\Http\Contr
 //Laporan
 Route::get('/laporankinerjainstruktur',[App\Http\Controllers\LaporanController::class, 'kinerjaInstrukturBulanan']);
 Route::get('/laporanaktivitasgym',[App\Http\Controllers\LaporanController::class, 'aktivitasGymBulanan']);
+Route::get('/laporanaktivitaskelas',[App\Http\Controllers\LaporanController::class, 'aktivitasKelasBulanan']);
+
