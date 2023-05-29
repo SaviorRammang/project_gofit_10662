@@ -100,5 +100,9 @@ Route::get('/jadwalumummobile', [App\Http\Controllers\JadwalUmumController::clas
 
 //Presensi Member Gym
 Route::apiResource('/presensiGym', App\Http\Controllers\presensiGymController::class);
-Route::get('/presensiMemberGym', [App\Http\Controllers\Api\BookingGymController::class, 'index']);
+Route::get('/presensiMemberGym', [App\Http\Controllers\BookingGymController::class, 'index']);
 Route::put('/presensiMemberGym/{no_struk_booking_presensi_gym}', [App\Http\Controllers\Api\BookingGymController::class, 'PresensiGym']);
+
+//Laporan
+Route::get('/laporankinerjainstruktur',[App\Http\Controllers\LaporanController::class, 'kinerjaInstrukturBulanan']);
+Route::get('/laporanaktivitasgym',[App\Http\Controllers\LaporanController::class, 'aktivitasGymBulanan']);
